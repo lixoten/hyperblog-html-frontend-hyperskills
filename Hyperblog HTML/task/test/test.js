@@ -73,6 +73,9 @@ class Test extends StageTest {
         this.wrongAmountOfElementsMsg = (id, amount) => {
             return `There should be "${amount}" elements with the selector of "${id}" in the body of the HTML document.`;
         }
+        this.wrongElementOrderMsg = (id, afterEl) => {
+            return `${theElement} "${id}" should be after the "${afterEl}" element in the body of the HTML document.`;
+        }
         // <--MESSAGES
         return correct();
 
@@ -116,7 +119,54 @@ class Test extends StageTest {
         }
 
         return correct();
-    })]
+    }), this.page.execute(() => {
+        // test #3
+        // ASIDE TAGS
+
+        // check if aside exists
+        if (this.elementExists("aside")) return wrong(this.missingElementMsg("aside"));
+
+        // check if aside after header
+        const aside = "header ~ aside";
+        if (this.elementExists(aside)) return wrong(this.wrongElementOrderMsg("aside","header"));
+
+        // check if h2 exists in aside
+        const h2 = "aside > h2";
+        if (this.elementExists(h2)) return wrong(this.missingElementMsg(h2));
+
+        // check if h2 has text
+        if (this.elementHasText(h2)) return wrong(this.missingTextMsg(h2));
+
+        // check if ol exists in aside
+        const ol = "aside > ol";
+        if (this.elementExists(ol)) return wrong(this.missingElementMsg(ol));
+
+        // check if ol has type attribute
+        if (this.elementHasAttribute(ol, "type")) return wrong(this.missingAttributeMsg(ol, "type"));
+
+        // check if ol has type I
+        if (this.elementHasAttribute(ol, "type", "I")) return wrong(this.wrongAttributeMsg(ol, "type", "I"));
+
+        // check if 3 li exists in ol
+        const li = "aside > ol > li";
+        if (this.elementExistsInAmount(li, 3)) return wrong(this.wrongAmountOfElementsMsg(li, 3));
+
+        // check if 3 a exists in li
+        const link = "aside > ol > li > a";
+        if (this.elementExistsInAmount(link, 3)) return wrong(this.wrongAmountOfElementsMsg(link, 3));
+
+        // check if link has text and href
+        for (let i = 1; i <= 3; i++) {
+            const link = `aside > ol > li:nth-child(${i}) > a`;
+            if (this.elementHasText(link)) return wrong(this.missingTextMsg(link));
+
+            if (this.elementHasAttribute(link, "href"))
+                return wrong(this.missingAttributeMsg(link, "href"));
+        }
+
+        return correct();
+    })
+    ]
 }
 
 it("Test stage", async () => {

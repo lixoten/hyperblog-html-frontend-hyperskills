@@ -1,29 +1,26 @@
-# Work on project. Stage 1/4: Header content
+# Work on project. Stage 2/4: Aside content
 Hyperblog HTML
 <hr />
 
-# Header content
+# Aside content
 
 ## Description
-In this stage, your task is to build the header for the blog template. The header needs to contain the blog title, navigation menu, and right semantic tags for improved structure and accessibility. Use the `<header>` tag as the container and the `<h1>` tag for the blog title.
-
-Create a navigation menu using `<nav>` and `<ul>` tags; each menu item should be displayed by an `<li>` that contains anchor links (`<a>`) to various sections of the blog.
-
-Pay attention to the proper use of HTML semantics.
-
-**When you run the checks for the project, you will see that these checks apply CSS selectors to pinpoint the mistake.**
+* In the second stage, you have to include an `<aside>` element in the blog template. The `<aside>` element signifies a section on the page containing content related to the main content, yet can be regarded as separate.
+* Inside the `<aside>` element, incorporate an `<h2>` header with any content, for instance, "Popular Articles". To build an ordered list of popular articles, employ the `<ol>` tag with the `type="I`" attribute; this will show the list items with uppercase Roman numerals. Each list item should encompass an anchor link (`<a>`) with a placeholder href attribute.
+* By adding this `<aside>` element, you will enhance the structure and provide additional content to the blog template.
 
 ## Objectives
-* In this stage, you are required to:
-* Use the `<header>` tag as the container for the header content.
-* Put any blog title within the suitable heading tag: `<h1>`.
-*  Use the `<nav>` tag for the navigation section.
-* Use the `<ul>` tag to create an unordered list for the navigation menu items.
-* Create 5 separate list items within the list using `<li>` tags.
-* Each list item should contain an anchor tag `<a>` with appropriate `href` attributes for the different sections/pages of the blog.
+In this stage, you are required to:
+* Add the `<aside>` tag within the body of the blog template.
+* Within the `<aside>` tag, use the `<h2>` tag to craft a header for the "Popular Articles" section (or any other title).
+* Use the `<ol>` tag to construct an ordered list for the articles.
+* Assign the `type` attribute of the `<ol>` tag to "I" to display uppercase Roman numerals.
+* In the `<ol>` tag, generate 3 individual list items with the `<li>` tag.
+* Inside each `<li>` tag, include an anchor link (`<a>`) with a placeholder `href` attribute.
+* Replicate this structure for each article, adjusting the text and `href` attribute for each list item.
 
 ## Example
 
-<img src="/resources/images/stage1.webp" alt="stage 1">
+<img src="/resources/images/stage2.webp" alt="stage 1">
 
 Write a program
