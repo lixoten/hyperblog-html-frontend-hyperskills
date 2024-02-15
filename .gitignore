@@ -1,0 +1,4 @@
+task.html
+/node_modules/
+*.yaml
+*.idea
