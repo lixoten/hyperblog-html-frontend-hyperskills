@@ -1,31 +1,31 @@
-# Work on project. Stage 3/4: Main content
+# Work on project. Stage 4/4: Footer content
 Hyperblog HTML
 <hr />
 
-# Main content
+# Footer content
 
 ## Description
-In this stage, you will add the main content for the blog. Begin by enclosing the whole content in a `<main>` tag. Within the `<main>` tag, create a `<section>` tag to bundle the articles. Each article should be enclosed within an `<article>` tag.
-For the first article, include a title of your choice with an `<h3>` heading. Beneath the heading, insert an `<i>` tag to show the publication date. Write a brief paragraph within a `<p>` tag to preview the content of the article. Assuming the article is about programming, include a code snippet using the <code> tag within a `<p>` tag, displaying something like `console.log("Hello, World!")`. Also, add a video using the `<video>` tag with the `control`s attribute and a `src` attribute that directs to the video file.
-For the second article, repeat the process. Include a distinct title, publication date, and a paragraph introducing the content. This time, however, include a quote. Within a `<blockquote>` tag, use a `<q>` tag to show a quote from an interview. In conclusion, embed an audio file using the `<audio>` tag with the `controls` attribute and a `src` attribute directing to the audio file.
-Always remember to close all the tags correctly and make sure your HTML code is well-structured.
+Finish your blog page by including a footer section using HTML. You can create the footer by enclosing the content within a `<footer>` tag.
+
+Within the `<footer>` tag, add a heading `<h2>` with any text, like "Contact Us" to signify the footer's purpose. Then, insert an email link using the `<a>` tag with the `href` attribute directed to the email address, for instance, "hello@hyperblog.com". This way, users can contact you via email.
+
+Underneath the email link, employ the `<address>` tag to show the address details. You can include the city, state, postal code, and country information.
+
+Lastly, use a paragraph `<p>` to exhibit the copyright statement. You may Include the symbol '©', the current year, and the name of your website. For example, it can be "© 2024 Hyperblog".
+
+Ensure you close all the tags properly and that your HTML code is well-structured. After you finish this step, your web page will display a footer section at the bottom containing the contact information and copyright statement.
 
 ## Objectives
 In this stage, you are required to:
-* Insert the `<main>` tag within the body of the blog template.
-* In the `<main>` tag, create a `<section>` tag to group 2 articles.
-* Create 2 articles, each enclosed within an `<article>` tag.
-* For each article, include a heading with an `<h3>` tag and a unique title.
-* Beneath each heading, show the publication date using the `<i>` tag.
-* Write a brief paragraph using the `<p>` tag to introduce the content of each article.
-* For the first article, present a code snippet using the `<code>` tag within a `<p>` tag.
-* Embed a video in the first article using the `<video>` tag with the `controls` attribute and a `src` attribute directing to the video file.
-* For the second article, use the `<blockquote>` tag to present a quote from an interview.
-* Within the `<blockquote>` tag, use the `<q>` tag to show the quote.
-* Embed an audio file in the second article using the `<audio>` tag with the `controls` attribute and a `src` attribute pointing to the audio file.
+* Insert a footer section using the `<footer>` tag in the body section.
+* Within the `<footer>` tag, add a heading using the `<h2>` tag with any text.
+* Set up an email link using the `<a>` tag with the `href` attribute directed to an email address.
+* Include an address using the `<address>` tag.
+* Provide city, state, postal code, and country details within the address.
+* Display the copyright statement using the `<p>` tag.
 
 ## Example
 
-<img src="/resources/images/stage3.webp" alt="stage 3">
+<img src="/resources/images/stage4.webp" alt="stage 4">
 
 Write a program

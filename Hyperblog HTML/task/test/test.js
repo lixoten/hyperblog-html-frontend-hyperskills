@@ -269,7 +269,52 @@ class Test extends StageTest {
         if (this.elementHasAttribute(audio, "controls")) return wrong(this.missingAttributeMsg(audio, "controls"));
 
         return correct();
-    })
+    }),
+        this.page.execute(() => {
+            // test #5
+            // FOOTER TAGS
+
+            // check if footer exists
+            if (this.elementExists("footer")) return wrong(this.missingElementMsg("footer"));
+
+            // check if footer after main
+            const footer = "main ~ footer";
+            if (this.elementExists(footer)) return wrong(this.wrongElementOrderMsg("footer", "main"));
+
+            // check if h2 exists in footer
+            const h2 = "footer > h2";
+            if (this.elementExists(h2)) return wrong(this.missingElementMsg(h2));
+
+            // check if h2 has text
+            if (this.elementHasText(h2)) return wrong(this.missingTextMsg(h2));
+
+            // check if a exists in footer
+            const link = "footer > a";
+            if (this.elementExists(link)) return wrong(this.missingElementMsg(link));
+
+            // check if a has text
+            if (this.elementHasText(link)) return wrong(this.missingTextMsg(link));
+
+            // check if a has href
+            if (this.elementHasAttribute(link, "href"))
+                return wrong(this.missingAttributeMsg(link, "href"));
+
+            // check if address exists in footer
+            const address = "footer > address";
+            if (this.elementExists(address)) return wrong(this.missingElementMsg(address));
+
+            // check if address has text
+            if (this.elementHasText(address)) return wrong(this.missingTextMsg(address));
+
+            // check if p exists in footer
+            const p = "footer > p";
+            if (this.elementExists(p)) return wrong(this.missingElementMsg(p));
+
+            // check if p has text
+            if (this.elementHasText(p)) return wrong(this.missingTextMsg(p));
+
+            return correct();
+        })
     ]
 }
 
