@@ -34,7 +34,7 @@ class Test extends StageTest {
             const element = document.body.querySelector(id);
             if (!element) return true;
             const attributeValue = element.getAttribute(attribute);
-            if (!attributeValue) return true;
+            if (attributeValue === null) return true;
             if (value) return attributeValue !== value;
             return false;
         };
@@ -128,7 +128,7 @@ class Test extends StageTest {
 
         // check if aside after header
         const aside = "header ~ aside";
-        if (this.elementExists(aside)) return wrong(this.wrongElementOrderMsg("aside","header"));
+        if (this.elementExists(aside)) return wrong(this.wrongElementOrderMsg("aside", "header"));
 
         // check if h2 exists in aside
         const h2 = "aside > h2";
@@ -163,6 +163,110 @@ class Test extends StageTest {
             if (this.elementHasAttribute(link, "href"))
                 return wrong(this.missingAttributeMsg(link, "href"));
         }
+
+        return correct();
+    }), this.page.execute(() => {
+        // test #4
+        // MAIN TAGS
+
+        // check if main exists
+        if (this.elementExists("main")) return wrong(this.missingElementMsg("main"));
+
+        // check if main after aside
+        const main = "aside ~ main";
+        if (this.elementExists(main)) return wrong(this.wrongElementOrderMsg("main", "aside"));
+
+        // check if section exists in main
+        const section = "main > section";
+        if (this.elementExists(section)) return wrong(this.missingElementMsg(section));
+
+        // check if article1 exists in section
+        const article1 = "main > section > article:nth-child(1)";
+        if (this.elementExists(article1)) return wrong(this.missingElementMsg(article1));
+
+        // check if h3 exists in article1
+        const h3 = "main > section > article:nth-child(1) > h3";
+        if (this.elementExists(h3)) return wrong(this.missingElementMsg(h3));
+
+        // check if h3 has text
+        if (this.elementHasText(h3)) return wrong(this.missingTextMsg(h3));
+
+        // check if i exists in article1
+        const i = "main > section > article:nth-child(1) > i";
+        if (this.elementExists(i)) return wrong(this.missingElementMsg(i));
+
+        // check if i has text
+        if (this.elementHasText(i)) return wrong(this.missingTextMsg(i));
+
+        // check if p exists in article1
+        const p = "main > section > article:nth-child(1) > p";
+        if (this.elementExists(p)) return wrong(this.missingElementMsg(p));
+
+        // check if p has text
+        if (this.elementHasText(p)) return wrong(this.missingTextMsg(p));
+
+        // check if article1 has code tag
+        const code = "main > section > article:nth-child(1) > p > code";
+        if (this.elementExists(code)) return wrong(this.missingElementMsg(code));
+
+        // check if code has text
+        if (this.elementHasText(code)) return wrong(this.missingTextMsg(code));
+
+        // check if article1 has video
+        const video = "main > section > article:nth-child(1) > video";
+        if (this.elementExists(video)) return wrong(this.missingElementMsg(video));
+
+        // check if video has src
+        if (this.elementHasAttribute(video, "src")) return wrong(this.missingAttributeMsg(video, "src"));
+
+        // check if video has controls
+        if (this.elementHasAttribute(video, "controls")) return wrong(this.missingAttributeMsg(video, "controls"));
+
+        // check if article2 exists in section
+        const article2 = "main > section > article:nth-child(2)";
+        if (this.elementExists(article2)) return wrong(this.missingElementMsg(article2));
+
+        // check if h3 exists in article2
+        const h3_2 = "main > section > article:nth-child(2) > h3";
+        if (this.elementExists(h3_2)) return wrong(this.missingElementMsg(h3_2));
+
+        // check if h3 has text
+        if (this.elementHasText(h3_2)) return wrong(this.missingTextMsg(h3_2));
+
+        // check if i exists in article2
+        const i_2 = "main > section > article:nth-child(2) > i";
+        if (this.elementExists(i_2)) return wrong(this.missingElementMsg(i_2));
+
+        // check if i has text
+        if (this.elementHasText(i_2)) return wrong(this.missingTextMsg(i_2));
+
+        // check if p exists in article2
+        const p_2 = "main > section > article:nth-child(2) > p";
+        if (this.elementExists(p_2)) return wrong(this.missingElementMsg(p_2));
+
+        // check if p has text
+        if (this.elementHasText(p_2)) return wrong(this.missingTextMsg(p_2));
+
+        // check if article2 has blockquote tag
+        const blockquote = "main > section > article:nth-child(2) > blockquote";
+        if (this.elementExists(blockquote)) return wrong(this.missingElementMsg(blockquote));
+
+        // check if blockquote has q tag
+        const q = "main > section > article:nth-child(2) > blockquote > q";
+        if (this.elementExists(q)) return wrong(this.missingElementMsg(q));
+
+        // check if q has text
+        if (this.elementHasText(q)) return wrong(this.missingTextMsg(q));
+
+        // check if article2 has audio
+        const audio = "main > section > article:nth-child(2) > audio";
+        if (this.elementExists(audio)) return wrong(this.missingElementMsg(audio));
+
+        // check if audio has src
+        if (this.elementHasAttribute(audio, "src")) return wrong(this.missingAttributeMsg(audio, "src"));
+
+        // check if audio has controls
+        if (this.elementHasAttribute(audio, "controls")) return wrong(this.missingAttributeMsg(audio, "controls"));
 
         return correct();
     })

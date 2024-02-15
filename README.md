@@ -1,7 +1,6 @@
 # Project: Hyperblog HTML - Hyperskills
 <hr />
 
-# Project
 Simple project to get familiar with HTML. 
 
 ## Objectives
